@@ -32,13 +32,13 @@ class sfWidgetFormMac extends sfWidgetForm {
         // every mac fields
         $mac = array();
         for($i = 0; $i < $nbToken; $i++) {
-            $mac[$i] = $this->renderMacWidget($name.'['.$i.']', $default[$i]);
+            $mac[$i] = $this->renderMacWidget($name . '[' . $i . ']', $default[$i]);
         }
         $js = '';
         if(sfConfig::get('app_sfnetworkwidget_js', true) && !sfWidgetFormMac::$javascriptIncluded) {
             $js .= $this->includeJavascript();
         }
-        return implode($separator, $mac).$js;
+        return implode($separator, $mac) . $js;
     }
 
     /**
@@ -48,7 +48,13 @@ class sfWidgetFormMac extends sfWidgetForm {
      * @return void
      */
     protected function renderMacWidget($name, $value = null, $options = array(), $attributes = array()) {
-        $widget = new sfWidgetFormInputText($options, array_merge($attributes, array('size' => '1', 'maxlength' => 2, 'class' => 'ybWidget-Mac')));
+        $widget = new sfWidgetFormInputText(
+            $options,
+            array_merge(
+                $attributes,
+                array('size' => '1', 'maxlength' => 2, 'class' => 'ybWidget-Mac')
+            )
+        );
         return $widget->render($name, $value);
     }
 

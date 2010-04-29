@@ -29,13 +29,13 @@ class sfWidgetFormIP extends sfWidgetForm {
         }
         $ip = array();
         for($i = 0; $i < $nbToken; $i++) {
-            $ip[$i] = $this->renderIpWidget($name.'['.$i.']', $default[$i]);
+            $ip[$i] = $this->renderIpWidget($name . '[' . $i . ']', $default[$i]);
         }
         $js = '';
         if(sfConfig::get('app_sfnetworkwidget_js', true) && !sfWidgetFormIP::$javascriptIncluded) {
             $js .= $this->includeJavascript();
         }
-        return implode($separator, $ip).$js;
+        return implode($separator, $ip) . $js;
     }
 
     /**
@@ -45,7 +45,13 @@ class sfWidgetFormIP extends sfWidgetForm {
      * @return void
      */
     protected function renderIpWidget($name, $value = null, $options = array(), $attributes = array()) {
-        $widget = new sfWidgetFormInputText($options, array_merge($attributes, array('size' => '2', 'maxlength' => 3, 'class' => 'ybWidget-IP')));
+        $widget = new sfWidgetFormInputText(
+            $options,
+            array_merge(
+                $attributes,
+                array('size' => '2', 'maxlength' => 3, 'class' => 'ybWidget-IP')
+            )
+        );
         return $widget->render($name, $value);
     }
 
