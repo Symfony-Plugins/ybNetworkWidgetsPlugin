@@ -4,13 +4,12 @@
 class sfWidgetFormMac extends sfWidgetForm {
     static $javascriptIncluded = false;
 
-
-/*
-    protected function configure($options = array(), $attributes = array()) {
-
-    }
-*/
-
+    /**
+     * description
+     *
+     * @param void
+     * @return void
+     */
     public function render($name, $value = null, $attributes = array(), $errors = array()) {
         $default = array();
         $separator = sfConfig::get('app_sfnetworkwidgets_macseparator', '-');
@@ -38,7 +37,12 @@ class sfWidgetFormMac extends sfWidgetForm {
         return implode($separator, $mac).$js;
     }
 
-
+    /**
+     * description
+     *
+     * @param void
+     * @return void
+     */
     protected function renderMacWidget($name, $value = null, $options = array(), $attributes = array()) {
         $widget = new sfWidgetFormInputText($options, array_merge($attributes, array('size' => '1', 'maxlength' => 2, 'class' => 'ybWidget-Mac')));
         return $widget->render($name, $value);
