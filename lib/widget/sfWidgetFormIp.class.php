@@ -32,7 +32,7 @@ class sfWidgetFormIP extends sfWidgetForm {
             $ip[$i] = $this->renderIpWidget($name.'['.$i.']', $default[$i]);
         }
         $js = '';
-        if(!sfWidgetFormIP::$javascriptIncluded) {
+        if(sfConfig::get('app_sfnetworkwidget_js', true) && !sfWidgetFormIP::$javascriptIncluded) {
             $js .= $this->includeJavascript();
         }
         return implode($separator, $ip).$js;
