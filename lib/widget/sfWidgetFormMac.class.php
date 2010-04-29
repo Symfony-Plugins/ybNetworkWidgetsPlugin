@@ -1,6 +1,10 @@
 <?php
 
-
+/**
+ * class comment
+ *
+ * @class
+ */
 class sfWidgetFormMac extends sfWidgetForm {
     static $javascriptIncluded = false;
 

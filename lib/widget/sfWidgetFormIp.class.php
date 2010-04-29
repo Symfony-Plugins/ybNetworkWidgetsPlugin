@@ -39,11 +39,11 @@ class sfWidgetFormIP extends sfWidgetForm {
     }
 
     /**
-      * description
-      *
-      * @param void
-      * @return void
-      */
+     * description
+     *
+     * @param void
+     * @return void
+     */
     protected function renderIpWidget($name, $value = null, $options = array(), $attributes = array()) {
         $widget = new sfWidgetFormInputText($options, array_merge($attributes, array('size' => '2', 'maxlength' => 3, 'class' => 'ybWidget-IP')));
         return $widget->render($name, $value);
