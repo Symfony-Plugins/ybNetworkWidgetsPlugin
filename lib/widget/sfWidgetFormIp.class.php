@@ -70,7 +70,7 @@ jQuery(document).ready(function() {
         currentInputVal = currentInput.val()
         if(110 == event.keyCode) { // dot
             // removing the trailing dot
-            currentInput.val(parseInt(currentInputVal));
+            currentInput.val(parseInt('0' + currentInputVal));
             // changing focus
             currentInput.next().focus();
             return;
